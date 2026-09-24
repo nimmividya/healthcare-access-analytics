@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+  - name: healthcare_raw
+    database: HEALTHCARE_ACCESS
+    schema: RAW
+
+    tables:
+      - name: AHRF
+
+      - name: ACS_S2701_HEALTH_INSURANCE
+
+      - name: ACS_S1701_POVERTY
+
+      - name: HRSA_HPSA_PRIMARY_CARE
