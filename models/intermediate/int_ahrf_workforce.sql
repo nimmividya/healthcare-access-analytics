@@ -1,0 +1,47 @@
+{{ config(
+    materialized='view'
+) }}
+
+select
+    STATE_FIPS,
+    STATE_ABBREV,
+    POPULATION,
+
+    PHYSICIAN_WORKFORCE,
+    PHYSICIAN_OFFICE,
+    PA_OFFICE,
+    RN_OFFICE,
+    APRN_OFFICE,
+
+    ROUND(
+        PHYSICIAN_WORKFORCE / NULLIF(POPULATION, 0) * 100000,
+        2
+    ) AS PHYSICIANS_PER_100K,
+
+    ROUND(
+        PHYSICIAN_OFFICE / NULLIF(POPULATION, 0) * 100000,
+        2
+    ) AS OFFICE_PHYSICIANS_PER_100K,
+
+    ROUND(
+        PA_OFFICE / NULLIF(POPULATION, 0) * 100000,
+        2
+    ) AS PA_PER_100K,
+
+    ROUND(
+        RN_OFFICE / NULLIF(POPULATION, 0) * 100000,
+        2
+    ) AS RN_PER_100K,
+
+    ROUND(
+        APRN_OFFICE / NULLIF(POPULATION, 0) * 100000,
+        2
+    ) AS APRN_PER_100K,
+
+    ROUND(
+        PHYSICIAN_OFFICE / NULLIF(PHYSICIAN_WORKFORCE, 0) * 100,
+        2
+    ) AS OFFICE_PHYSICIAN_SHARE_PCT
+
+from {{ ref('stg_ahrf_workforce') }}
+where STATE_ABBREV <> 'US'
