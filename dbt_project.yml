@@ -32,11 +32,11 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   healthcare_access_analytics:
     staging:
-      +schema: HEALTHCARE_ACCESS
+      +schema: analytics
       +materialized: view
     intermediate:
       +schema: intermediate
       +materialized: view
     marts:
-      +schema: analytics
+      +schema: marts
       +materialized: table
