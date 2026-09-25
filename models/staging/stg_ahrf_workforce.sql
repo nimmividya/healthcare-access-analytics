@@ -1,0 +1,10 @@
+select
+    STATE_FIPS,
+    ST_ABBREV         as STATE_ABBREV,
+    PHYS_WKFORC_23    as PHYSICIAN_WORKFORCE,
+    PHYS_OFCS_PHYS_23 as PHYSICIAN_OFFICE,
+    PA_OFCS_PHYS_23   as PA_OFFICE,
+    RN_OFCS_PHYS_23   as RN_OFFICE,
+    APRN_OFCS_PHYS_23 as APRN_OFFICE,
+    POPN_24           as POPULATION
+from {{ source('healthcare_raw', 'AHRF') }}
