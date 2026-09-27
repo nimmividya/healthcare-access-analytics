@@ -1,0 +1,59 @@
+version: 2
+
+models:
+
+  - name: dim_state
+    description: "Canonical dimension containing the 50 U.S. states and Washington, DC."
+
+    columns:
+      - name: state_key
+        description: "Surrogate key for the state dimension."
+        data_tests:
+          - not_null
+          - unique
+
+      - name: state_fips
+        description: "Two-digit FIPS identifier for the state or DC."
+        data_tests:
+          - not_null
+          - unique
+
+      - name: state_name
+        description: "State or District of Columbia name."
+        data_tests:
+          - not_null
+
+      - name: state_abbrev
+        description: "Two-letter postal abbreviation."
+        data_tests:
+          - not_null
+          - unique
+
+  - name: fact_healthcare_access
+    description: "State-level healthcare access measures integrated from AHRF, HPSA, ACS insurance, and ACS poverty."
+
+    columns:
+      - name: state_key
+        description: "Foreign key to dim_state."
+        data_tests:
+          - not_null
+          - unique
+          - relationships:
+              arguments:
+                to: ref('dim_state')
+                field: state_key
+
+      - name: state_fips
+        description: "State FIPS identifier."
+        data_tests:
+          - not_null
+
+      - name: state_name
+        description: "State or District of Columbia name."
+        data_tests:
+          - not_null
+
+      - name: state_abbrev
+        description: "Two-letter postal abbreviation."
+        data_tests:
+          - not_null
