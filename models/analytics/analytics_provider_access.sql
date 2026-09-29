@@ -1,0 +1,25 @@
+{{ config(
+    materialized='view'
+) }}
+
+SELECT
+    STATE_KEY,
+    STATE_FIPS,
+    STATE_NAME,
+    STATE_ABBREV,
+    AHRF_POPULATION,
+
+    PHYSICIAN_WORKFORCE,
+    PHYSICIAN_OFFICE,
+    PA_OFFICE,
+    RN_OFFICE,
+    APRN_OFFICE,
+
+    PHYSICIANS_PER_100K,
+    OFFICE_PHYSICIANS_PER_100K,
+    PA_PER_100K,
+    RN_PER_100K,
+    APRN_PER_100K,
+    OFFICE_PHYSICIAN_SHARE_PCT
+
+FROM {{ ref('fact_healthcare_access') }}

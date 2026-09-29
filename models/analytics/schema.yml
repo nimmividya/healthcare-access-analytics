@@ -1,0 +1,82 @@
+version: 2
+
+models:
+
+  - name: analytics_provider_access
+
+    description: "Provider workforce measures by U.S. state and Washington, DC."
+
+    columns:
+
+      - name: STATE_KEY
+        description: "Surrogate key for the state dimension."
+        data_tests:
+          - not_null
+          - unique
+
+      - name: STATE_FIPS
+        description: "Two-digit FIPS code identifying the state."
+        data_tests:
+          - not_null
+          - unique
+
+      - name: STATE_NAME
+        description: "State name."
+
+        data_tests:
+          - not_null
+
+      - name: STATE_ABBREV
+        description: "Two-letter state abbreviation."
+        data_tests:
+          - not_null
+          - unique
+  - name: analytics_healthcare_burden
+
+    description: "Healthcare access burden indicators by U.S. state and Washington, DC."
+
+    columns:
+
+      - name: STATE_KEY
+        description: "Surrogate key for the state dimension."
+        data_tests:
+          - not_null
+          - unique
+
+      - name: STATE_FIPS
+        description: "Two-digit FIPS code identifying the state."
+        data_tests:
+          - not_null
+          - unique
+
+      - name: STATE_NAME
+        description: "State name."
+        data_tests:
+          - not_null
+
+      - name: STATE_ABBREV
+        description: "Two-letter state abbreviation."
+        data_tests:
+          - not_null
+          - unique
+  - name: analytics_access_correlations
+
+    description: "Correlation analysis of selected healthcare access indicators across U.S. states and Washington, DC."
+
+    columns:
+
+      - name: RELATIONSHIP
+        description: "Description of the two measures being compared."
+        data_tests:
+          - not_null
+          - unique
+
+      - name: CORRELATION
+        description: "Pearson correlation coefficient between the two measures."
+        data_tests:
+          - not_null
+
+      - name: OBSERVATION_COUNT
+        description: "Number of state-level observations used in the correlation calculation."
+        data_tests:
+          - not_null
