@@ -365,7 +365,7 @@ The primary goal was not to produce a single ranking of states, but to build a t
 
 ## Author
 
-**Nimmi Vidya**
+**Nimmitha Vidyathilaka**
 
 Transitioning into Analytics Engineering
 
