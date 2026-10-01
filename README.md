@@ -340,6 +340,18 @@ This project demonstrates practical experience with:
 * Managing a reproducible Analytics Engineering workflow
 
 ---
+## Skills Demonstrated
+
+- Analytics Engineering workflow: RAW → STAGING → INTERMEDIATE → MARTS → ANALYTICS
+- dbt model development and layered transformations
+- SQL data transformation and analytical modeling
+- Snowflake data warehousing
+- Dimensional modeling with fact and dimension tables
+- dbt tests and data quality validation
+- Statistical analysis and correlation analysis
+- Python for analytical workflows
+- Tableau dashboard development
+- Git and GitHub version control
 
 ## Project Outcome
 
