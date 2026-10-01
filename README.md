@@ -5,7 +5,7 @@ An end-to-end U.S. healthcare analytics project built to demonstrate practical *
 The project transforms healthcare and socioeconomic source data into tested, documented analytical datasets and Tableau dashboards for state-level analysis.
 
 ---
-
+![Healthcare Access & Outcomes Analytics Dashboard](images/healthcare_access_dashboard.png)
 ## Business Question
 
 > **Which U.S. states have greater healthcare access challenges, and what measurable factors are associated with those challenges?**
